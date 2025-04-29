@@ -1,0 +1,49 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HateBlock Settings</title>
+  <style>
+    body { font-family: sans-serif; margin: 10px; width: 250px; }
+    h1 { font-size: 1.1em; margin-bottom: 0.5em; }
+    .section { margin-bottom: 1em; }
+    label { font-size: 0.9em; }
+    #logsList { max-height: 100px; overflow-y: auto; font-size: 0.8em; background: #f9f9f9; padding: 5px; }
+    #logsList p { margin: 0 0 4px; }
+    #logsList p span.url { color: #555; font-size: 0.7em; }
+    #sendBtn { margin-top: 5px; }
+  </style>
+</head>
+<body>
+  <h1>HateBlock Settings</h1>
+
+  <div class="section">
+    <label>
+      <input type="checkbox" id="enableToggle" />
+      Enable HateBlock
+    </label>
+  </div>
+
+  <div class="section">
+    <label for="thresholdRange">Toxicity Threshold: <span id="thVal">0.8</span></label><br/>
+    <input type="range" id="thresholdRange" min="0" max="1" step="0.1" value="0.8" />
+  </div>
+
+  <div class="section">
+    <strong>Blocked Content Logs:</strong>
+    <div id="logsList">
+      <!-- recent blocked content entries will be injected here -->
+    </div>
+  </div>
+
+  <div class="section">
+    <input type="email" id="emailInput" placeholder="Your email" style="width: 100%;" /><br/>
+    <button id="sendBtn">Send Logs to Email</button>
+  </div>
+
+  <!-- ✅ Local EmailJS SDK -->
+  <script src="lib/email.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+/* style.css */
+
+/* Blur out the content of blocked elements */
+.hateblock-blurred {
+    filter: blur(5px) brightness(0.6) !important;
+    pointer-events: none !important;  /* prevent interaction with blurred content */
+  }
+  
+  /* Style for the "[Blocked by HateBlock]" label */
+  .hateblock-label {
+    color: red !important;
+    font-weight: bold !important;
+    background: transparent !important;
+    /* If placed inline after text, ensure it doesn't get blurred if previous element has a filter */
+  }
+  
+  /* In case the label is a sibling of a blurred element, we might want to offset it or display inline. */
+  .hateblock-label::before {
+    content: "";  /* spacer before label if needed */
+  }
+  

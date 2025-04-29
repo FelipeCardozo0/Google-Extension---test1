@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "HateBlock",
+    "version": "1.0.0",
+    "description": "Blur or hide hate speech and toxic content on web pages in real time.",
+    "permissions": [
+      "storage"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": [
+            "lib/tf-core.min.js",
+            "lib/tf-converter.min.js",
+            "lib/tf-backend-cpu.min.js",
+            "lib/toxicity.min.js",
+            "content.js"
+        ],
+        "css": ["style.css"],
+        "run_at": "document_idle",
+        "all_frames": true    
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html"
+
+    }
+  }  
